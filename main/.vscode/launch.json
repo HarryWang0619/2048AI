@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Game2048",
+            "request": "launch",
+            "mainClass": "Game2048"
+        }
+    ]
+}
