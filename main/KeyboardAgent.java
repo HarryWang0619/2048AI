@@ -28,4 +28,8 @@ public class KeyboardAgent {
     public static void keyReleased(KeyEvent e) {
         pressed[e.getKeyCode()] = false;
     }
+
+    public static boolean typed(int keyEvent) {
+        return !pressed[keyEvent] && prev[keyEvent];
+    }
 }

@@ -2,8 +2,6 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.*;
 import java.awt.event.*;
-
-
  
 public class Start{
 

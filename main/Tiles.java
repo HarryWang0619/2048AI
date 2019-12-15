@@ -3,25 +3,28 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class Tile {
+public class Tiles {
 
     public static final int WIDTH = 80;
     public static final int HEIGHT = 80;
     public static final int SLIDE_SPEED = 20;
 
     private int value;
-    private BufferedImaga tileImage;
+    private BufferedImage tileImage;
     private Color background;
     private Color text;
     private Font font;
+    private MyPoint slideTo;
     private int x;
     private int y;
 
+    private boolean canCombine = true;
 
-    public Tile(int value, int x, int y) {
+    public Tiles(int value, int x, int y) {
         this.value = value;
         this.x = x;
         this.y = y;
+        slideTo = new MyPoint(x, y);
         tileImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         drawImage();
     }
@@ -66,7 +69,7 @@ public class Tile {
             text = new Color(0x701710);
         }  
 
-        g.setColor(new Color(0,0,0,0));
+        g.setColor(background);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(text);
@@ -83,5 +86,53 @@ public class Tile {
         int drawY = HEIGHT/2 + DrawUtils.getMessageHeight("" + value, font, g) / 2;
         g.drawString("" + value, drawX, drawY);
         g.dispose();
+    }
+
+    public void update() {
+    }
+
+    public void render(Graphics2D g) {
+        g.drawImage(tileImage, x, y, null);
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+        drawImage();
+    }
+
+    public boolean canCombine() {
+        return canCombine;
+    }
+
+    public void setCanCombine(boolean can) {
+        this.canCombine = can;
+    }
+
+    public MyPoint slideTo() {
+        return slideTo;
+    }
+
+    public void setSlideTo(MyPoint point) {
+        this.slideTo = point;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

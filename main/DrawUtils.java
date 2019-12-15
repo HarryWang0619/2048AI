@@ -1,6 +1,7 @@
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.java.awt.font.TextLayout;
+import java.awt.geom.Rectangle2D;
+import java.awt.font.TextLayout;
 
 public class DrawUtils{
     private DrawUtils() {}
@@ -13,7 +14,7 @@ public class DrawUtils{
 
     public static int getMessageHeight(String message, Font font, Graphics2D g) {
         g.setFont(font);
-        if (message.length() ==0) {
+        if (message.length() == 0) {
             return 0;
         }
         java.awt.font.TextLayout tl = new TextLayout(message, font, g.getFontRenderContext());
