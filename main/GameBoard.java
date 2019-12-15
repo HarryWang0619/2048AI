@@ -310,7 +310,7 @@ public class GameBoard {
         }
 
         if (KeyboardAgent.typed(KeyEvent.VK_RIGHT)) {
-            moveTiles(Actions.LEFT);
+            moveTiles(Actions.RIGHT);
             if (!hasStarted) hasStarted = true;
         }
 
